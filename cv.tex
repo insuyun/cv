@@ -1,522 +1,138 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Last updated: 5/21/2017
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% NOTE: If you find that it says                                     %%
-%%                                                                    %%
-%%                           1 of ??                                  %%
-%%                                                                    %%
-%% at the bottom of your first page, this means that the AUX file     %%
-%% was not available when you ran LaTeX on this source. Simply RERUN  %%
-%% LaTeX to get the ``??'' replaced with the number of the last page  %%
-%% of the document. The AUX file will be generated on the first run   %%
-%% of LaTeX and used on the second run to fill in all of the          %%
-%% references.                                                        %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,letterpaper]{article}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Don't like 10pt? Try 11pt or 12pt
-\documentclass[11pt]{article}
-\topskip = 0pt
-
-% The automated optical recognition software used to digitize resume
-% information works best with fonts that do not have serifs. This
-% command uses a sans serif font throughout. Uncomment both lines (or at
-% least the second) to restore a Roman font (i.e., a font with serifs).
-%\usepackage{times}
-%\renewcommand{\familydefault}{\sfdefault}
-
-% This is a helpful package that puts math inside length specifications
-\usepackage{calc}
-\usepackage{comment}
-\usepackage{verbatim}
-
-%\usepackage[square,comma,numbers,sort&compress]{natbib}
-
-\usepackage[letterpaper,breaklinks,colorlinks]{hyperref}
-\hypersetup{citecolor=blue,linkcolor=blue,urlcolor=blue}
-\usepackage{endnotes,microtype,xspace,graphicx,fancyvrb,multirow}
-\usepackage[noend]{algpseudocode}
-\usepackage{booktabs}
-\usepackage{dashbox}
-\usepackage{tikz}
-\usetikzlibrary{shapes,arrows,decorations.pathreplacing}
-%\usepackage{underscore}
-\usepackage[T1]{fontenc}
-\usepackage{relsize}
-\usepackage{txfonts}
-\usepackage{array}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
-
-
-% Simpler bibsection for CV sections
-% (thanks to natbib for inspiration)
-\makeatletter
-\newlength{\bibhang}
-\setlength{\bibhang}{1em} %1em}
-\newlength{\bibsep}
- {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
-\newenvironment{bibsection}%
-        {\begin{enumerate}{}{%
-%        {\begin{list}{}{%
-       \setlength{\leftmargin}{\bibhang}%
-       \setlength{\itemindent}{-\leftmargin}%
-       \setlength{\itemsep}{\bibsep}%
-       \setlength{\parsep}{\z@}%
-        \setlength{\partopsep}{0pt}%
-        \setlength{\topsep}{0pt}}}
-        {\end{enumerate}\vspace{-.6\baselineskip}}
-%        {\end{list}\vspace{-.6\baselineskip}}
-\makeatother
-
-% Layout: Puts the section titles on left side of page
-\reversemarginpar
-
-%
-%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
-%
-% The next \usepackage line changes the layout for CV style section
-% headings as marginal notes. It also sets up the paper size as either
-% letter or A4. By default, letter was used. If A4 paper is desired,
-% comment out the letterpaper lines and uncomment the a4paper lines.
-%
-% As you can see, the margin widths and section title widths can be
-% easily adjusted.
-%
-% ALSO: Notice that the includefoot option can be commented OUT in order
-% to put the PAGE NUMBER *IN* the bottom margin. This will make the
-% effective text area larger.
-%
-% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
-% see the note about the +LP and -LP lines below. Comment out the +LP
-% and uncomment the -LP.
-%
-% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
-% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
-% below.
-%
-
-%% Use these lines for letter-sized paper
-\usepackage[paper=letterpaper,
-            %includefoot, % Uncomment to put page number above margin
-            marginparwidth=1.5in,     % Length of section titles
-            marginparsep=.08in,       % Space between titles and text
-            margin=1.0in,               % 1 inch margins
-            includemp]{geometry}
-
-%% Use these lines for A4-sized paper
-%\usepackage[paper=a4paper,
-%            %includefoot, % Uncomment to put page number above margin
-%            marginparwidth=30.5mm,    % Length of section titles
-%            marginparsep=1.5mm,       % Space between titles and text
-%            margin=25mm,              % 25mm margins
-%            includemp]{geometry}
-
-%% More layout: Get rid of indenting throughout entire document
-\setlength{\parindent}{0in}
-
-\usepackage[shortlabels]{enumitem}
-
-%% Reference the last page in the page number
-%
-% NOTE: comment the +LP line and uncomment the -LP line to have page
-%       numbers without the ``of ##'' last page reference)
-%
-% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
-%       numbers (make sure includefoot is commented out above)
-%
-\usepackage{fancyhdr,lastpage}
-\pagestyle{fancy}
-%\pagestyle{empty}      % Uncomment this to get rid of page numbers
-\fancyhf{}\renewcommand{\headrulewidth}{0pt}
-\fancyfootoffset{\marginparsep+\marginparwidth}
-\newlength{\footpageshift}
-\setlength{\footpageshift}
-          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
-
-\begin{comment}
-\lfoot{\hspace{\footpageshift}%
-       \parbox{4in}{\, \hfill %
-                    \arabic{page} of \protect\pageref*{LastPage} % +LP
-%                    \arabic{page}                               % -LP
-                    \hfill \,}}
-\end{comment}
-
-% Finally, give us PDF bookmarks
-%\usepackage{color,hyperref}
-%\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
-%\hypersetup{colorlinks,breaklinks,
-%            linkcolor=darkblue,urlcolor=darkblue,
-%            anchorcolor=darkblue,citecolor=darkblue}
-
-%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% The title (name) with a horizontal rule under it
-% (optional argument typesets an object right-justified across from name
-%  as well)
-%
-% Usage: \makeheading{name}
-%        OR
-%        \makeheading[right_object]{name}
-%
-% Place at top of document. It should be the first thing.
-% If ``right_object'' is provided in the square-braced optional
-% argument, it will be right justified on the same line as ``name'' at
-% the top of the CV. For example:
-%
-%       \makeheading[\emph{Curriculum vitae}]{Your Name}
-%
-% will put an emphasized ``Curriculum vitae'' at the top of the document
-% as a title. Likewise, a picture could be included:
-%
-%   \makeheading[\includegraphics[height=1.5in]{my_picutre}]{Your Name}
-%
-% the picture will be flush right across from the name.
-\newcommand{\makeheading}[2][]%
-        {\hspace*{-\marginparsep minus \marginparwidth}%
-         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
-             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
-                 \rule{\columnwidth}{1pt}%
-         \end{minipage}}
-
-% The section headings
-%
-% Usage: \section{section name}
-\renewcommand{\section}[1]{\pagebreak[3]%
-    \hyphenpenalty=10000%
-    \vspace{1.3\baselineskip}%
-    \phantomsection\addcontentsline{toc}{section}{#1}%
-    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright \large #1}}}%
-    \vspace{-\baselineskip}\par}
-
-% An itemize-style list with lots of space between items
-\newenvironment{outerlist}[1][\enskip\textbullet]%
-        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
-         \vspace{-.6\baselineskip}}
-
-% An environment IDENTICAL to outerlist that has better pre-list spacing
-% when used as the first thing in a \section
-\newenvironment{lonelist}[1][\enskip\textbullet]%
-        {\begin{list}{#1}{%
-        \setlength{\partopsep}{0pt}%
-        \setlength{\topsep}{0pt}}}
-        {\end{list}\vspace{-.6\baselineskip}}
-
-% An itemize-style list with little space between items
-\newenvironment{innerlist}[1][\enskip\textbullet]%
-        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
-        {\end{itemize}}
-
-% An environment IDENTICAL to innerlist that has better pre-list spacing
-% when used as the first thing in a \section
-\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
-        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
-        {\end{itemize}\vspace{-.6\baselineskip}}
-
-% To add some paragraph space between lines.
-% This also tells LaTeX to preferably break a page on one of these gaps
-% if there is a needed pagebreak nearby.
-\newcommand{\blankline}{\quad\pagebreak[3]}
-\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
-
-% Uses hyperref to link DOI
-\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
-\newcommand\doi[1]{doi:\doilink{#1}}
-
-% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
-\providecommand*\url[1]{\href{#1}{#1}}
-% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
-\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
-
-% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
-\providecommand*\email[1]{\href{mailto:#1}{#1}}
-% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
-%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
-
-%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
-%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-%    \TeX}}
-\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    \TeX}}
-\providecommand\Matlab{\textsc{Matlab}}
-
-%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{pkgs}
+\input{cmds}
 
 \begin{document}
-\makeheading[\emph{Curriculum Vitae}]{Insu Yun, Computer Science Department}
 
-\section{Contact Information}
+% Name, phone, email, address
+{\bf\huge Insu Yun} \vspace{1em}\\
+\noindent\begin{tabular}[t]{@{}l}
+  Room 3134, Klaus Advanced Computing Building \\
+  Georgia Institute of Technology, \\
+  266 Ferst Dr. N.W., Atlanta, GA, 30332-0765
+\end{tabular}
+\hfill
+\begin{tabular}[t]{r@{}}
+\\
+Email: \email{insu@gatech.edu} \\
+Web: \href{https://jakkdu.github.io}{https://jakkdu.github.io} \\
+\end{tabular}
 
-% NOTE: Mind where the & separators and \\ breaks are in the following
-%       table.
 %
-% ALSO: \rcollength is the width of the right column of the table
-%       (adjust it to your liking; default is 1.85in).
+% Research Interests
 %
-%\newlength{\rcollength}\setlength{\rcollength}{1.4in}%
-%
-%\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
-%\href{http://www.cse.osu.edu/}%
-%     {Department of Computer Science and Engineering} & \\
-%\href{http://www.osu.edu/}{The Ohio State University}
-Room 3134, Klaus Advanced Computing Building \\
-Atlanta GA 30332, Georgia, USA \hfill \email{insu@gatech.edu}
-%\end{tabular}
 
-%\section{Objective}
-
-%Insert text here if you want to
-%\begin{innerlist}
-%\item More information and auxiliary documents can be found at\\\url{http://www.tedpavlic.com/facjobsearch/}
-%\end{innerlist}
-
-\section{Research Interests}
-
+\sectiontitle{Research Interests}
 Binary analysis, system security and applied cryptography.
 
-\section{Education}
-
-%\href{http://www.kaist.ac.kr/}{}
-\textbf{Korea Advanced Institute of Science and Technology} \hfill Daejeon, Korea
-\begin{outerlist}
-\item[] B.S., Computer Science and Mathematics (Double major)  \hfill Feb 2015\\
-\end{outerlist}
-
-\textbf{Georgia Institute of Technology} \hfill Georgia, USA
-\begin{outerlist}
-\item[] PH.D, Computer science  \hfill Aug 2015 - Now\\
-\end{outerlist}
-
-\begin{comment}
-\section{Work Experience}
-\textbf{Korea Cyber Command} \hfill {Seoul, South Korea}
-\begin{innerlist}
-\item[] Software Developer  \hfill {Apr 2012 to Jan 2014}\\
-    \begin{innerlist}
-        \item Developed security software used in the army.
-        \item Windows malware reverse engineering.
-        \item Writing exploits for commodity softwares.
-        \item Threat response and management.
-    \end{innerlist}
-\end{innerlist}
-\end{comment}
-
-\section{Referred Publications}
-\vspace{-.1275in}
-\begin{bibsection}
-    \item \textbf{APISan: Sanitizing API Usages through Semantic Cross-checking} \\
-    {\small
-       \textbf{Insu Yun}, Changwoo Min, Xujie Si, Yeongjin Jang, Taesoo Kim, Mayur Naik. \\
-       {In Proceedings of the 25th USENIX Security Symposium \textbf{(\emph{Security 16})}}, \\
-       Austin, TX, August, 2016.
-    }
-    \item \textbf{HDFI: Hardware-Assisted Data-flow Isolation} \\
-    {\small
-      Chengyu Song, Hyungon Moon, Monjur Alam, \textbf{Insu Yun}, Byoungyoung Lee,
-      Taesoo Kim, Wenke Lee, and Yunheung Paek. \\
-      In Proceedings of the 37th IEEE Symposium on Security and Privacy \textbf{(\emph{SP16})}, \\
-      San Jose, CA, May, 2016.
-    }
-    \item \textbf{Kargus: a Highly-scalable Software-based Intrusion Detection System} \\
-    {\small
-      Muhammad Jamshed, Jihyung Lee, Sangwoo Moon, \textbf{Insu Yun}, Deokjin
-      Kim, Sungryoul Lee, Yung Yi and KyoungSoo Park. \\
-      In Proceedings of The 19th ACM Conference on Computer and Communications Security
-      {\bf (\emph{CCS 12})}, \\
-      Raleigh, NC, October, 2012.
-    }
-\end{bibsection}
-
-%\section{Papers in Preparation}
-%\vspace{-.1275in}
-%\begin{bibsection}%
-%	\item {\bf Yeongjin Jang}, Pak Ho Chung, Song, C., Tielei Wang, Wenke Lee  ``A11y Support Considered Harmful" \emph{in Preparation}.
-%\end{bibsection}
-
-% Add a little space to nudge next ``Conference Publications'' marginpar
-% down to make room for tall ``Submitted Journal Publications''
-% marginpar. If there are enough submitted journal publications, this
-% space will not be needed (and should be removed).
-%\vspace{0.1in}
-
-%\section{Papers in Preparation}
-%\vspace{-.1in}
-%\begin{bibsection}
-%    \item {\bf Quick, H.}, Banerjee, S., and Carlin, B.P. ``Heteroscedastic variances in areally referenced temporal processes with an application to California asthma hospitalization data.''
-
-%    \item {\bf Quick, H.}, Carlin, B.P., and Banerjee, S. ``Space-time Gaussian process modeling of temporal air pollution gradients."
-%\end{bibsection}
-
-\section{Awards and Honors}
-\textbf{Scholarships}
-\begin{innerlist}
-\item National Research Foundation of Korea \hfill Daejeon, Korea\\
-Scholarship for Undergraduate Study \hfill Mar 2008 to Dec 2013
-\end{innerlist}
-\halfblankline
-
-\textbf{Capture-the-Flag (CTF) Contests}
-\begin{innerlist}
-\item DEFCON CTF \hfill Las Vegas, NV\\
-  3rd Place of the contest(DEFKOR) \hfill Aug 2016 \\
-  1st Place of the contest(DEFKOR) \hfill Aug 2015 \\
-  10th Place of the contest (GoN) \hfill Aug 2014 \\
-  3rd Place of the contest (GoN) \hfill Aug 2010
-\item CODEGATE CTF \hfill Seoul, Korea \\
-  3rd Place of the contest (GoN) \hfill Apr 2012 \\
-  5th Place of the contest (GoN) \hfill Apr 2010 \\
-  4th Place of the contest (GoN) \hfill Apr 2009
-\item KISA HDCON \hfill Seoul, Korea \\
-  Gold Medal, 2nd Place of the contest (GoN) \hfill May 2009
-\item Secuinside CTF \hfill Seoul, Korea \\
-  3rd Place of the contest (GoN) \hfill Oct, 2011
-\item ISEC CTF \hfill Seoul, Korea \\
-  1st Place of the contest (GoN) \hfill Sep, 2011
-\end{innerlist}
-
-
-\textbf{Others}
-\begin{innerlist}
-\item Darpa Cyber Granch Challenge \\
-  7th Place of the contest(Disekt) \hfill Aug 2016
-\end{innerlist}
-
-%\textbf{Awards}
-%\begin{innerlist}
-%\item Commendation for High Achievement \hfill Seoul, Korea\\
-%Republic of Korea Cyber Commander \hfill Dec, 2013
-%\end{innerlist}
-%\halfblankline
-
-%Others
-%\begin{innerlist}
-%\item U.S. Army Garrison, Yongsan, 8th U.S. Army \hfill Seoul, Korea\\
-%Army Commendation Medal (ARCOM) \hfill Aug 2007\\
-%\end{innerlist}
-
-%\section{Presentations}
-%Statistical Meetings
-%\begin{innerlist}
-%\item Workshop on Environmetrics, Raleigh, NC \hfill Oct 2012
-%\item Joint Statistical Meetings, San Diego, CA \hfill Aug 2012
-%\item Biometric Society (ENAR) Regional Meeting, Washington, D.C. \hfill Apr 2012
-%\item Case Studies in Bayesian Statistics and\hfill Oct 2011\\
-%Machine Learning, Pittsburgh, PA
-%\item Biometric Society (ENAR) Regional Meeting, Miami, FL \hfill Mar 2011
-%\item IMS/ISBA Joint International Meeting, Park City, UT \hfill Jan 2011
-%\end{innerlist}
-
-%\halfblankline
-
-%University of Minnesota
-%\begin{innerlist}
-%\item Mostly Markov Chain Seminar Series \hfill Nov 2011
-%\item School of Public Health Research Day \hfill Apr 2011
-%\end{innerlist}
-
-%\begin{comment}
-\section{Presentations and Invited Talks}
-2012 National Defense Information Security Conference \hfill Seoul, Korea
-\begin{innerlist}
-\item Topic: International hacking contest \hfill Oct 2012
-\end{innerlist}
-
-\begin{comment}
-\section{Skills}
 %
-\textbf{Programming Languages}
-\begin{innerlist}
-    \item C, C$+$$+$, Objective-C, Python, Ruby, Java, JavaScript, PHP
-    %\item VHDL, Verilog
-    \item x86/x64 and ARM assembly
-\end{innerlist}
-\textbf{Platforms and Tools}
-\begin{innerlist}
-    \item UNIX/Linux/BSD, MS Windows
-    \item Ollydbg, IDA Pro, gdb, WinDbg
-\end{innerlist}
-\textbf{Languages}
-\begin{innerlist}
-    \item Korean
-    \item English
-\end{innerlist}
-\end{comment}
-
-
-\section{Teaching Experience}
-
-%\textbf{Teaching Assistant} \hfill {Springs 2011--12}
-\textbf{Instructor} \hfill {Feb 2009 to Aug 2011}
-\begin{innerlist}
-\item[] Information Security class for freshmen\\
-        Department of Humanity and Social Science, KAIST
-\end{innerlist}
+% Education
 %
 
-%\section{Service}
-%Recruiting Committee, Division of Biostatistics \hfill {May 2010 -- Present}
-%\begin{innerlist}
-%    \item Assist with planning of annual Division of Biostatistics Open House and Admitted Student Visit Days
-%%    \item Meet with prospective and admitted students %; answer questions from a student's perspective
-%\end{innerlist}
+\sectiontitle{Education}
+\begin{envtime}{Georgia Institute of Technology}{Aug. 2015 --}
+	\item Ph.D. in Computer Science 
+	\item Advisor: Dr. Taesoo Kim
+\end{envtime}
 
-%\halfblankline
+\begin{envtime}{Korea Advanced Institute of Science and Technology(KAIST)}{Sep. 2008 -- Feb. 2015}
+\item B.S. in Computer Science \& Mathematics
+\end{envtime}
 
-%Student Member of Search Committee for the \hfill {June 2010 -- Aug 2010}\\
-%SPH Coordinator of Recruitment and Student Leadership
-%\begin{innerlist}
-%    \item Assisted in job search for the SPH Coordinator of Recruitment and Student Leadership
-%    \item Reviewed applications, conducted interviews
-%\end{innerlist}
-%\end{comment}
+%
+% Publications
+%
 
-%\begin{comment}
-\section{Skills}
+\sectiontitle{Publications}
+\begin{enumerate}
+  \item \textbf{AVPASS: Leaking and Bypassing Antivirus Detection Model Automatically} \\
+  {\small
+    Jinho Jung, Chanil Jeon, Max Wolotsky, \textbf{Insu Yun}, Taesoo Kim \\
+    BlackHat USA 2017 \\
+    Las Vegas, NV, Auguest 2017 
+  }
+  \item \textbf{CAB-Fuzz: Practical Concolic Testing Techniques for COTS Operating Systems} \\
+  {\small
+    Su Yong Kim, Sangho Lee, \textbf{Insu Yun}, Wen Xu, Byoungyoung Lee, Youngtae Yun, Taesoo Kim \\
+    In Proceedings of the 2017 USENIX Annual Technical Conference (ATC 2017) \\
+    Santa Clara, CA, July 2017 
+  }
+  %
+  \item \textbf{APISan: Sanitizing API Usages through Semantic Cross-checking} \\
+  {\small
+     \textbf{Insu Yun}, Changwoo Min, Xujie Si, Yeongjin Jang, Taesoo Kim, Mayur Naik. \\
+     In Proceedings of the 25th USENIX Security Symposium (Security 16), \\
+     Austin, TX, August, 2016. \\
+     \textbf{* Nominated as a finalist in CSAW Best Applied Research Paper Award 2016.}
+  }
+  %
+  \item \textbf{HDFI: Hardware-Assisted Data-flow Isolation} \\
+  {\small
+    Chengyu Song, Hyungon Moon, Monjur Alam, \textbf{Insu Yun}, Byoungyoung Lee,
+    Taesoo Kim, Wenke Lee, and Yunheung Paek. \\
+    In Proceedings of the 37th IEEE Symposium on Security and Privacy (SP 16), \\
+    San Jose, CA, May, 2016.
+  }
+  %
+  \item \textbf{Kargus: a Highly-scalable Software-based Intrusion Detection System} \\
+  {\small
+    Muhammad Jamshed, Jihyung Lee, Sangwoo Moon, \textbf{Insu Yun}, Deokjin
+    Kim, Sungryoul Lee, Yung Yi and KyoungSoo Park. \\
+    In Proceedings of The 19th ACM Conference on Computer and Communications Security (CCS 12), \\
+    Raleigh, NC, October, 2012.
+  }
+\end{enumerate}
 
-\begin{innerlist}
-    \item C, C$+$$+$, Python, Ruby, Java, JavaScript, PHP, CUDA, x86$/$x64 assembly
-\end{innerlist}
+%
+% Work Experience
+%
 
-\section{References}
-\textbf{Dr. Taesoo Kim}
-\begin{innerlist}
-\item[] Professor \hfill {Phone: 404-385-2934}\\
-Colledge of Computing \hfill{E-mail: taesoo@gatech.edu}\\
-Georgia Institute of Technology
-\end{innerlist}
+\sectiontitle{Work Experience}
+\begin{envtime}[Research Intern, Seattle, WA]{Microsoft Research}{May. 2017 -- Aug. 2017}
+\item Contributed to REPT, a system that utilizes Intel Processor Trace to diagnose production failures
+  \item Mentor:  Weidong Cui
+\end{envtime}
+\subsectiontitle[Research Assistant, Atlanta, GA]{Georgia Tech}{Aug. 2015 --} \\
+\begin{envtime}[Software Developer, Seoul, Korea]{Korean Cyber Command}{Apr. 2012 -- Jan. 2014}
+  \item Served for the mandatory military service
+\end{envtime}
+
+% Honors & Awards
+\sectiontitle{Honors \& Awards}
+\begin{envtime}{Capture-the-flag(CTF) contests}{}
+  \timeitem{DEFCON 24 CTF, 3rd place (Team DEFKOR)}{Aug. 2016}
+  \timeitem{DEFCON 23 CTF, 1st place (Team DEFKOR)}{Aug. 2015}
+  \timeitem{DEFCON 18 CTF, 3rd place (Team GoN)}{Aug. 2010}
+  \timeitem{DARPA Cyber Grand Challenge (Team Disekt)}{Aug. 2016}
+  \timeitem{Codegate CTF 2012, 3rd place (Team GoN)}{Apr. 2012}
+  \timeitem{Codegate CTF 2010, 5th place (Team GoN)}{Apr. 2010}
+  \timeitem{Codegate CTF 2009, 4th place (Team GoN)}{Apr. 2009}
+  \timeitem{KISA HDCON, Gold Medal, 2nd place (Team GoN)}{May 2009}
+  \timeitem{Secuinside CTF, 3rd place (Team GoN)}{Oct. 2011}
+  \timeitem{ISEC CTF, 1st place (Team GoN)}{Sep. 2011}
+  \timeitem{Hungry Hungry Hacker CTF 2016, 1st place}{Apr. 2016}
+\end{envtime}
+%
+\begin{envtime}{Bug Bounties}{}
+  \timeitem{Three integer overflow vulnerabilities in PHP (\$1,500), the Internet Bug Bounty}{Jun. 2016}
+  \timeitem{An Integer Overflow in Python zipimport (\$1,000), the Internet Bug Bounty}{Apr. 2016}
+\end{envtime}
+%
+\begin{envtime}{Scholarships}{}
+  \timeitem{National Research Foundation of Korea Scholarship for Undergraduate}{Mar. 2008 -- Dec. 2013}
+\end{envtime}
+
+% Teaching Experience
+\sectiontitle{Teaching Experience}
+\begin{envtime}{}{}
+  \vspace{-0.5em}
+  \timeitem{Teaching Assistant, Information Security Lab (CS8803 at Georgia Tech)}{Fall 2017}
+  \timeitem{Teaching Assistant, Information Security Lab (CS6265 at Georgia Tech)}{Fall 2016}
+  \timeitem{Teaching Assistant, Information Security Lab (CS6265 at Georgia Tech)}{Fall 2015}
+  \timeitem{Head Instructor, Information Security class for freshmen (KAIST)}{Mar. 2009 -- Aug. 2011}
+\end{envtime}
+
 \end{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------%
-% The following is copyright and licensing information for
-% redistribution of this LaTeX source code; it also includes a liability
-% statement. If this source code is not being redistributed to others,
-% it may be omitted. It has no effect on the function of the above code.
-%----------------------------------------------------------------------%
-% Copyright (c) 2007, 2008, 2009, 2010, 2011 by Theodore P. Pavlic
-%
-% Unless otherwise expressly stated, this work is licensed under the
-% Creative Commons Attribution-Noncommercial 3.0 United States License. To
-% view a copy of this license, visit
-% http://creativecommons.org/licenses/by-nc/3.0/us/ or send a letter to
-% Creative Commons, 171 Second Street, Suite 300, San Francisco,
-% California, 94105, USA.
-%
-% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-% IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-% CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-% SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-%----------------------------------------------------------------------%

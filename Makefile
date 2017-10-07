@@ -1,5 +1,5 @@
 all:
-	pdflatex cv.tex
+	./bin/latexrun -Wall cv.tex 
 
 clean:
 	rm -rf *.out *.pdf *.aux
