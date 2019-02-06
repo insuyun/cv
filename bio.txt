@@ -2,9 +2,9 @@ Insu Yun is a PhD student at Georgia Institute of Technology. He is interested
 in system security in general, especially, binary analysis, automatic
 vulnerability detection, and applied cryptography.
 
-In addition to research, he has been participating in several capture-the-flag
-(CTF). In particular, he received the Black Badge from DEF CON as the winner
-in 2015 (DEFKOR) and 2018 (DEFKOR00t).
+In addition to research, he has been participating in several hacking
+competitions. In particular, he received the Black Badge from DEF CON as the
+winner in 2015 (DEFKOR) and 2018 (DEFKOR00t).
 
 Prior to joining Georgia Tech, he received his BS degree in Computer Science
 from KAIST in 2010.
