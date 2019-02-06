@@ -1,6 +1,6 @@
-Insu Yun is a PhD student at Georgia Institute of Technology. He is interested
-in system security in general, especially, binary analysis, automatic
-vulnerability detection, and applied cryptography.
+Insu Yun is a Ph.D. student at Georgia Institute of Technology. He is
+interested in system security in general, especially, binary analysis,
+automatic vulnerability detection, and applied cryptography.
 
 In addition to research, he has been participating in several hacking
 competitions. In particular, he received the Black Badge from DEF CON as the
