@@ -1,0 +1,4 @@
+[submodule "web"]
+	path = web
+	url = https://github.com/jakkdu/jakkdu.github.io
+	branch = pelican

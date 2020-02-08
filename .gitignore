@@ -3,3 +3,4 @@
 *.out
 *.pdf
 !cv.pdf
+/cv-gen.tex
