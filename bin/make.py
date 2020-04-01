@@ -2,14 +2,19 @@
 import os
 import sys
 import bibtexparser
+import yaml
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../web/bin'))
+ROOT = os.path.abspath(os.path.dirname(__file__))
+WEB_DIR = os.path.join(ROOT, "../web")
+
+sys.path.insert(0, os.path.join(WEB_DIR, 'bin'))
 import make as web
 
 def tex_highlight(s):
     return "\\textbf{%s}" % s
 
 LB = ' \\\\'
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
@@ -33,8 +38,27 @@ if __name__ == '__main__':
         content += ['}', '']
         text += '\n'.join(content)
 
-    with open(os.path.join(os.path.dirname(__file__), '../cv.tex')) as f:
+    with open(os.path.join(WEB_DIR, "cve.md")) as f:
+        entries = []
+        entry = {}
+        for l in f:
+            l = l.strip()
+            if not l:
+                entries.append(entry)
+                entry = {}
+            else:
+                k, v = l.strip().split(': ', 1)
+                k = k.strip()
+                v = v.strip()
+                if k == 'cve':
+                    v = v.split(', ')
+                entry[k] = v
+        cves = ', '.join(sorted(map(lambda entry: "\\cc{%s}" % entry['cve'][0], entries)))
+        cves = cves.replace("#", "\\#")
+
+    with open(os.path.join(ROOT, '../cv.tex')) as f:
         text = web.replace_text(f.read(), 'PUB', text)
+        text = web.replace_text(text, 'CVE', cves)
 
     with open(sys.argv[1], 'w') as f:
         f.write(text)
