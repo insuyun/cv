@@ -4,3 +4,4 @@
 *.pdf
 !cv.pdf
 /cv-gen.tex
+/web
