@@ -1,12 +1,14 @@
-Insu Yun is a Ph.D. student at Georgia Institute of Technology. He is
-interested in system security in general, especially, binary analysis,
-automatic vulnerability detection, and applied cryptography. His research won
-the best paper award from Usenix Security and OSDI.
+Insu Yun is an assistant professor at KAIST. He is interested in system
+security in general, especially, binary analysis, automatic vulnerability
+detection, and automatic exploit generation. His work has been published to the
+major computer conferences such as IEEE Security & Privacy, USENIX Security,
+and USENIX OSDI.  Particularly, his research won the best paper award from
+USENIX Security and OSDI in 2018.
 
 In addition to research, he has been participating in several hacking
-competitions. In particular, he won Pwn2Own 2020 by compromising Apple Safari
-(SSLab_Gatech) and received the Black Badge from DEF CON as the winner in 2015
-(DEFKOR) and 2018 (DEFKOR00t).
+competitions as a hacking expert. In particular, he won Pwn2Own 2020 by
+compromising Apple Safari and won DEFCON CTF in 2015 and 2018, which is the
+world hacking competition.
 
-Prior to joining Georgia Tech, he received his BS degree in Computer Science
-from KAIST in 2015.
+Prior to joining KAIST, he received his Ph.D. degree in Computer Science from
+Georgia Tech in 2020.
